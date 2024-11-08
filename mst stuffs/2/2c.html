@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEKart Signup</title>
+</head>
+<body>
+    <h2>Signup for IEKart</h2>
+    <form action="#" method="GET">
+        <table>
+            <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" id="username" name="username" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td><label for="confirm_password">Confirm Password:</label></td>
+                <td><input type="password" id="confirm_password" name="confirm_password" required></td>
+            </tr>
+            <tr>
+                <td><label for="birthdate">Birthdate:</label></td>
+                <td><input type="date" id="birthdate" name="birthdate" required></td>
+            </tr>
+            <tr>
+                <td><label for="color">Favorite Color:</label></td>
+                <td><input type="color" id="color" name="color"></td>
+            </tr>
+            <tr>
+                <td><label for="genders">Gender:</label></td>
+                <td>
+                    <input type="radio" value="male" id="male" name="genders">
+                    <label for="male">Male</label>
+                    <input type="radio" value="female" id="female" name="genders">
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="country">Country:</label></td>
+                <td>
+                    <select id="country" name="country">
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">UK</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="category">Preferred Shopping Category:</label></td>
+                <td>
+                    <input list="categories" name="category" id="category">
+                    <datalist id="categories">
+                        <option value="Electronics">
+                        <option value="Clothing">
+                        <option value="Home & Garden">
+                        <option value="Books">
+                        <option value="Beauty & Health">
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Address:</label></td>
+                <td><textarea></textarea></td>
+            </tr>
+             <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit">Sign Up</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
