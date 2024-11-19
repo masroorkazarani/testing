@@ -1,19 +1,24 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
+const express = require('express')
+const mongoose = require('mongoose')
+const app = express()
 
-mongoose.connect(url).then(()=> console.log('Database Connected')).catch((err)=> console.log(err))
+app.listen(3000,()=>{console.log('Listening on port 3000')})
+const url="mongodb+srv://masroorkazaranispam:Youtuberz@test.t9d7f.mongodb.net/?retryWrites=true&w=majority&appName=Test"
 
-const bookSchema = new mongoose.Schema({
+mongoose.connect(url).then(()=>console.log("Database Connected..")).catch(err => console.log(err))
+
+var bookSchema = mongoose.Schema({
     name: String,
-    isbn: { type: String, index: true },
-    author: String,
-    pages: Number
+    isbn:{type:String,index:true},
+    author:String,
+    pages:Number
 });
+const Book = mongoose.model("books", bookSchema)
 
-const db = mongoose.connection;
-db.on('error',console.error.bind(console.log('error:')))
-
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
-});
+const book = new Book({
+    name: 'Sherlock Holmes',
+    isbn: "389991270121",
+    author: "Arthur Conon Doyles",
+    pages: 167
+})
+book.save().then(()=>console.log("Created")).catch(e=>console.log(e))
