@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <h1>Movie Ticket Booking</h1>
+    <label for="seats">Enter number of seats to book: </label>
+    <input type="number" id="seats" min="1" max="10" />
+    <button onclick="calculateCost()">Book Tickets</button>
+    <p id="output"></p>
+
+    <script>
+        // Function to calculate the discount based on number of seats
+        function calculateDiscount(seats) {
+            const discounts = [3, 5, 7, 9, 11];
+            return discounts[seats - 3] || 0; // Default to 0 for invalid cases
+        }
+
+        // Function to calculate and display the total cost
+        function calculateCost() {
+            const seatInput = document.getElementById('seats');
+            const output = document.getElementById('output');
+            const seats = parseInt(seatInput.value, 10);
+
+            if (seats <= 0 || isNaN(seats)) {
+                output.textContent = "Please enter a valid number of seats.";
+                return;
+            }
+
+            if (seats <= 2) {
+                const totalCost = seats * 150;
+                output.textContent = `Total cost: Rs. ${totalCost}`;
+            } else if (seats >= 6) {
+                output.textContent = "Booking is not allowed for 6 or more seats.";
+            } else {
+                // Apply discount logic for 3 to 5 seats
+                const discount = calculateDiscount(seats);
+                const baseCost = seats * 150;
+                const discountedCost = baseCost - (baseCost * discount) / 100;
+                output.textContent = `Total cost after ${discount}% discount: Rs. ${discountedCost.toFixed(2)}`;
+            }
+        }
+    </script>
+</body>
+</html>

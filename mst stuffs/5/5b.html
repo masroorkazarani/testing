@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Periodic Stock Price Simulation</h1>
+    <p>Check the console for stock price updates every 3 seconds.</p>
+    <button id="startButton">Start Simulation</button>
+    <div id="output"></div>
+
+    <script>
+        // Function to generate a random stock price
+        function getRandomStockPrice() {
+            return Math.floor(Math.random() * (500 - 100 + 1)) + 100; // Random price between 100 and 500
+        }
+
+        // Function to simulate stock price updates
+        function simulateStockPrice() {
+            return new Promise((resolve, reject) => {
+                let count = 0; // Track number of updates
+                const outputDiv = document.getElementById('output');
+                outputDiv.innerHTML = ''; // Clear previous output
+
+                const intervalId = setInterval(() => {
+                    count++;
+                    const price = getRandomStockPrice();
+                    console.log(`Stock Price Update ${count}: Rs. ${price}`);
+                    outputDiv.innerHTML += `<p>Stock Price Update ${count}: Rs. ${price}</p>`;
+
+                    // Stop after 5 updates
+                    if (count === 5) {
+                        clearInterval(intervalId); // Stop the interval
+                        resolve("Stock price simulation completed.");
+                    }
+                }, 3000); // Run every 3 seconds
+            });
+        }
+
+        // Start the simulation when the button is clicked
+        document.getElementById('startButton').addEventListener('click', () => {
+            simulateStockPrice()
+                .then((message) => {
+                    console.log(message);
+                    document.getElementById('output').innerHTML += `<p><strong>${message}</strong></p>`;
+                })
+                .catch((error) => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
