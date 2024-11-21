@@ -55,6 +55,7 @@
 
         // Start the simulation when the button is clicked
         document.getElementById('startButton').addEventListener('click', () => {
+            document.getElementById('output').innerHTML = '';
             simulateStockPrice()
                 .then((message) => {
                     console.log(message);

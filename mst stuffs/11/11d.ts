@@ -32,7 +32,7 @@ class Gadget extends Product3 {
 }
 
 const gadget = new Gadget(1234, "Smartphone", 499, "Electronics");
-console.log("Product Name: " + gadget.productName);
-console.log("Product Category: " + gadget.getProductCategory());
 console.log("Product ID: " + gadget.getProductId());
+console.log("Product Name: " + gadget.productName);
 console.log("Product Price: " + Product3.productPrice);
+console.log("Product Category: " + gadget.getProductCategory());
