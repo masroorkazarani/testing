@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .movie {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .movie h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Details</h1>
+    <div id="movieList"></div>
+
+    <script>
+        // Array of objects with movie details
+        const movies = [
+            {
+                name: "Inception",
+                starring: "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
+                language: "English",
+                ratings: 8.8
+            },
+            {
+                name: "3 Idiots",
+                starring: "Aamir Khan, R. Madhavan, Sharman Joshi",
+                language: "Hindi",
+                ratings: 8.4
+            },
+            {
+                name: "Parasite",
+                starring: "Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong",
+                language: "Korean",
+                ratings: 8.6
+            },
+            {
+                name: "The Dark Knight",
+                starring: "Christian Bale, Heath Ledger, Aaron Eckhart",
+                language: "English",
+                ratings: 9.0
+            },
+            {
+                name: "Spirited Away",
+                starring: "Rumi Hiiragi, Miyu Irino, Mari Natsuki",
+                language: "Japanese",
+                ratings: 8.6
+            }
+        ];
+
+        // Render movies on the page
+        const movieList = document.getElementById("movieList");
+
+        movies.forEach(movie => {
+            const movieDiv = document.createElement("div");
+            movieDiv.className = "movie";
+
+            movieDiv.innerHTML = `
+                <h2>${movie.name}</h2>
+                <p><strong>Starring:</strong> ${movie.starring}</p>
+                <p><strong>Language:</strong> ${movie.language}</p>
+                <p><strong>Ratings:</strong> ${movie.ratings}</p>
+            `;
+
+            movieList.appendChild(movieDiv);
+        });
+    </script>
+</body>
+</html>

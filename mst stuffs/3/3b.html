@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Movie Details</title>
+</head>
+<body>
+    <h1>Movie Details</h1>
+    <p id="movieDetails"></p>
+
+    <script>
+        // Initializing variables with appropriate data types
+        const movieName = "Inception"; // String (Primitive)
+        const starring = ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"]; // Array (Non-Primitive)
+        const language = "English"; // String (Primitive)
+        const ratings = 8.8; // Number (Primitive)
+
+        // Using template literals to display the movie details
+        const movieInfo = `
+            <strong>Movie Name:</strong> ${movieName} <br>
+            <strong>Starring:</strong> ${starring.join(", ")} <br>
+            <strong>Language:</strong> ${language} <br>
+            <strong>Ratings:</strong> ${ratings} <br>
+        `;
+
+        // Displaying the movie details on the webpage
+        document.getElementById("movieDetails").innerHTML = movieInfo;
+    </script>
+</body>
+</html>

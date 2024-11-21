@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Circle Area Calculation</title>
+</head>
+<body>
+    <h1>JavaScript Program: Calculate Area of a Circle</h1>
+    <p id="output"></p>
+
+    <script>
+        // Using const for PI as its value should not change
+        const PI = 3.14159;
+
+        // Using var to declare the radius (can be re-declared and reassigned)
+        var radius = 5; // Initial value
+        var areaVar = PI * radius * radius; // Calculate area
+        let output = "Using var - Initial Area: " + areaVar + "<br>";
+
+        // Reassigning radius using var
+        radius = 7;
+        areaVar = PI * radius * radius; // Recalculate area
+        output += "Using var - After Reassigning Radius: " + areaVar + "<br>";
+
+        // Using let to declare the radius (can be reassigned but not re-declared in the same scope)
+        let radiusLet = 5; // Initial value
+        let areaLet = PI * radiusLet * radiusLet; // Calculate area
+        output += "Using let - Initial Area: " + areaLet + "<br>";
+
+        // Reassigning radiusLet using let
+        radiusLet = 7;
+        areaLet = PI * radiusLet * radiusLet; // Recalculate area
+        output += "Using let - After Reassigning Radius: " + areaLet + "<br>";
+
+        // Observations
+        output += "<h3>Observations:</h3>";
+        output += "<ul>";
+        output += "<li>var allows redeclaration and reassignment, so it's more prone to errors.</li>";
+        output += "<li>let allows reassignment but prevents redeclaration in the same scope.</li>";
+        output += "<li>const ensures the value remains unchanged throughout.</li>";
+        output += "</ul>";
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+</html>

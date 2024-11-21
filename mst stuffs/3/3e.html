@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <h1>Book Movie Tickets Online</h1>
+    <input type="number" id="ticketNum" min="1" max="20" placeholder="Enter number of seats">
+    <button onclick="calculateWithFor()">Calculate (For Loop)</button>
+    <button onclick="calculateWithWhile()">Calculate (While Loop)</button>
+    <button onclick="calculateWithDoWhile()">Calculate (Do-While Loop)</button>
+    <p id="ticketDetails"></p>
+
+    <script>
+        const pricePerTicket = 150;
+
+        // For Loop Implementation
+        function calculateWithFor() {
+            const seats = parseInt(document.getElementById("ticketNum").value) || 0;
+            let ticketDetails = "";
+
+            if (seats >= 6) {
+                ticketDetails = "Booking not allowed: You cannot book 6 or more tickets.";
+            } else if (seats <= 2) {
+                const totalCost = pricePerTicket * seats;
+                ticketDetails = `
+                    <strong>Total Price:</strong> Rs. ${totalCost} <br>
+                    <strong>Note:</strong> No discount applicable. Cost per ticket remains Rs. 150.
+                `;
+            } else {
+                let discountPercentage = 3;
+                for (let i = 3; i <= seats; i++) {
+                    discountPercentage += 2; // Increment discount percentage
+                }
+                const totalCost = pricePerTicket * seats;
+                const discountAmount = totalCost * (discountPercentage / 100);
+                const finalPrice = totalCost - discountAmount;
+
+                ticketDetails = `
+                    <strong>Seats to be booked:</strong> ${seats} <br>
+                    <strong>Discount Percentage:</strong> ${discountPercentage}% <br>
+                    <strong>Discount Amount:</strong> Rs. ${discountAmount.toFixed(2)} <br>
+                    <strong>Final Price after Discount:</strong> Rs. ${finalPrice.toFixed(2)} <br>
+                `;
+            }
+            document.getElementById("ticketDetails").innerHTML = ticketDetails;
+        }
+
+        // While Loop Implementation
+        function calculateWithWhile() {
+            const seats = parseInt(document.getElementById("ticketNum").value) || 0;
+            let ticketDetails = "";
+
+            if (seats >= 6) {
+                ticketDetails = "Booking not allowed: You cannot book 6 or more tickets.";
+            } else if (seats <= 2) {
+                const totalCost = pricePerTicket * seats;
+                ticketDetails = `
+                    <strong>Total Price:</strong> Rs. ${totalCost} <br>
+                    <strong>Note:</strong> No discount applicable. Cost per ticket remains Rs. 150.
+                `;
+            } else {
+                let discountPercentage = 3;
+                let i = 3;
+                while (i <= seats) {
+                    discountPercentage += 2;
+                    i++;
+                }
+                const totalCost = pricePerTicket * seats;
+                const discountAmount = totalCost * (discountPercentage / 100);
+                const finalPrice = totalCost - discountAmount;
+
+                ticketDetails = `
+                    <strong>Seats to be booked:</strong> ${seats} <br>
+                    <strong>Discount Percentage:</strong> ${discountPercentage}% <br>
+                    <strong>Discount Amount:</strong> Rs. ${discountAmount.toFixed(2)} <br>
+                    <strong>Final Price after Discount:</strong> Rs. ${finalPrice.toFixed(2)} <br>
+                `;
+            }
+            document.getElementById("ticketDetails").innerHTML = ticketDetails;
+        }
+
+        // Do-While Loop Implementation
+        function calculateWithDoWhile() {
+            const seats = parseInt(document.getElementById("ticketNum").value) || 0;
+            let ticketDetails = "";
+
+            if (seats >= 6) {
+                ticketDetails = "Booking not allowed: You cannot book 6 or more tickets.";
+            } else if (seats <= 2) {
+                const totalCost = pricePerTicket * seats;
+                ticketDetails = `
+                    <strong>Total Price:</strong> Rs. ${totalCost} <br>
+                    <strong>Note:</strong> No discount applicable. Cost per ticket remains Rs. 150.
+                `;
+            } else {
+                let discountPercentage = 3;
+                let i = 3;
+                do {
+                    discountPercentage += 2;
+                    i++;
+                } while (i <= seats);
+                const totalCost = pricePerTicket * seats;
+                const discountAmount = totalCost * (discountPercentage / 100);
+                const finalPrice = totalCost - discountAmount;
+
+                ticketDetails = `
+                    <strong>Seats to be booked:</strong> ${seats} <br>
+                    <strong>Discount Percentage:</strong> ${discountPercentage}% <br>
+                    <strong>Discount Amount:</strong> Rs. ${discountAmount.toFixed(2)} <br>
+                    <strong>Final Price after Discount:</strong> Rs. ${finalPrice.toFixed(2)} <br>
+                `;
+            }
+            document.getElementById("ticketDetails").innerHTML = ticketDetails;
+        }
+    </script>
+</body>
+</html>

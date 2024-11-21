@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <h1>Book Movie Tickets Online</h1>
+    <input type="number" id="ticketNum" min="0">
+    <button onclick="calculate()"> Calculate </button>
+    <p id="ticketDetails"></p>
+
+    <script>
+        function calculate(){
+        const pricePerTicket = 150; // Price per ticket (Rs.)
+        const festiveDiscount = 0.10; // 10% discount during festive season
+        let numberOfTickets = parseInt(document.getElementById("ticketNum").value);
+        let totalPrice = pricePerTicket * numberOfTickets;
+        let discountAmount = totalPrice * festiveDiscount;
+        let finalPrice = totalPrice - discountAmount;
+        const ticketInfo = `
+            <strong>Price per Ticket:</strong> Rs. ${pricePerTicket} <br>
+            <strong>Number of Tickets:</strong> ${numberOfTickets} <br>
+            <strong>Total Price (Before Discount):</strong> Rs. ${totalPrice} <br>
+            <strong>Festive Season Discount (10%):</strong> Rs. ${discountAmount.toFixed(2)} <br>
+            <strong>Final Price (After Discount):</strong> Rs. ${finalPrice.toFixed(2)} <br>
+        `;
+        document.getElementById("ticketDetails").innerHTML = ticketInfo;
+        }
+    </script>
+</body>
+</html>
