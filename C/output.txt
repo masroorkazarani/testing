@@ -1,0 +1,6 @@
+Enter the number of vertices: Enter the adjacency matrix (use 0 for no edge):
+Enter the starting node (0-based index): Shortest distances from node 0:
+To node 0: 0
+To node 1: 1
+To node 2: 3
+To node 3: 6

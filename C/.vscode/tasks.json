@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile and run C program",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "${relativeFile}",
+        "-o",
+        "${fileBasenameNoExtension}.out",
+        "&&",
+        "./${fileBasenameNoExtension}.out",
+        "<",
+        "input.txt",
+        ">",
+        "output.txt",
+        "&&",
+        "rm",
+        "${fileBasenameNoExtension}.out"
+      ],
+      "presentation": {
+        "reveal": "never",
+        "echo": false
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": [
+          "relative",
+          "${workspaceRoot}"
+        ],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    }
+  ]
+}
